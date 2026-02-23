@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photos - Star Boys</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Photos Gallery</h1>
+<div id="photosGallery"></div>
+
+<script src="script.js"></script>
+<script>
+const photosDiv = document.getElementById('photosGallery');
+galleryPhotos.forEach(file=>{
+  const img = document.createElement('img');
+  img.src = URL.createObjectURL(file);
+  img.style.width='90%';
+  img.style.margin='10px';
+  photosDiv.appendChild(img);
+});
+</script>
+</body>
+</html>
