@@ -9,42 +9,51 @@
 </head>
 <body>
 
-<!-- Movie-Style Intro -->
+<!-- Cinematic Intro -->
 <div id="introOverlay">
   <canvas id="particleCanvas"></canvas>
   <img id="introLogo" src="logo.png" alt="Star Boys Logo">
   <h1 id="introText">Star Boys Devotional Hub</h1>
 </div>
 
-<!-- Main Page after Intro -->
+<!-- Main Page -->
 <div id="mainPage">
   <h2>Welcome to Star Boys Devotional Hub</h2>
+
   <div class="options">
-    <button onclick="window.location.href='photos.html'">Photos</button>
-    <button onclick="window.location.href='videos.html'">Videos</button>
-    <button onclick="showLogin()">Admin Login</button>
+    <div class="card" onclick="location.href='photos.html'">
+      <h3>Photos</h3>
+    </div>
+    <div class="card" onclick="location.href='videos.html'">
+      <h3>Videos</h3>
+    </div>
+    <div class="card" onclick="showLogin()">
+      <h3>Admin Login</h3>
+    </div>
   </div>
 
   <div id="loginBox" style="display:none;">
-    <input type="password" id="password" placeholder="Enter Password">
+    <input type="password" id="passwordInput" placeholder="Enter Password">
     <button onclick="login()">Login</button>
   </div>
 
   <div id="adminPanel">
     <h3>Upload Photo</h3>
-    <input type="file" id="photoUpload">
-    <button onclick="uploadPhoto()">Upload</button>
+    <input type="file" id="photoUpload"><button onclick="uploadPhoto()">Upload</button>
 
     <h3>Upload Video</h3>
-    <input type="file" id="videoUpload">
-    <button onclick="uploadVideo()">Upload</button>
+    <input type="file" id="videoUpload"><button onclick="uploadVideo()">Upload</button>
 
     <h3>Add Notice</h3>
-    <input type="text" id="noticeText" placeholder="Enter notice">
-    <button onclick="addNotice()">Post Notice</button>
+    <input type="text" id="noticeText" placeholder="Notice..."><button onclick="addNotice()">Post</button>
   </div>
 
   <div id="noticeBoard"></div>
+
+  <div id="location">
+    <h3>Our Location</h3>
+    <p>Shri Ekadanta Geleyara Balaga – Bagalagunte, Bangalore, Karnataka</p>
+  </div>
 </div>
 
 <script src="script.js"></script>
