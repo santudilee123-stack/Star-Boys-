@@ -1,0 +1,91 @@
+/* Global */
+body, html {
+  margin:0;
+  padding:0;
+  font-family: 'Cinzel', serif;
+  background:black;
+  color:white;
+}
+
+/* Fullscreen Intro */
+#introOverlay {
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+#introLogo {
+  width:200px;
+  opacity:0;
+  transform: scale(0.5);
+  animation: logoZoom 3s forwards 0.5s;
+}
+
+#introText {
+  color: gold;
+  font-size:3rem;
+  text-shadow:0 0 20px gold,0 0 40px orange;
+  opacity:0;
+  animation:textFade 3s forwards 2s;
+}
+
+@keyframes logoZoom {
+  0% {opacity:0; transform:scale(0.5);}
+  50% {opacity:1; transform:scale(1.2);}
+  100% {opacity:1; transform:scale(1);}
+}
+
+@keyframes textFade {
+  0% {opacity:0; transform:translateY(50px);}
+  100% {opacity:1; transform:translateY(0);}
+}
+
+/* Main page hidden initially */
+#mainPage {
+  display:none;
+  text-align:center;
+  padding:20px;
+}
+
+button {
+  padding:15px 25px;
+  margin:10px;
+  font-size:1.2rem;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  background:orange;
+  color:white;
+}
+
+#adminPanel {
+  display:none;
+  margin-top:20px;
+}
+
+#noticeBoard {
+  margin-top:20px;
+}
+
+.notice {
+  background:red;
+  padding:10px;
+  margin:5px;
+  border-radius:5px;
+}
+
+/* Particle canvas */
+#particleCanvas {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:0;
+      }
