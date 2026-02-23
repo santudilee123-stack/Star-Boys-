@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Videos - Star Boys</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Videos Gallery</h1>
+<div id="videosGallery"></div>
+
+<script src="script.js"></script>
+<script>
+const videosDiv = document.getElementById('videosGallery');
+
+function renderVideos(){
+  videosDiv.innerHTML='';
+  galleryVideos.forEach((file,i)=>{
+    const vid = document.createElement('video');
+    vid.src = URL.createObjectURL(file);
+    vid.controls = true;
+    vid.style.width='90%';
+    vid.style.margin='10px';
+    // Delete button
+    const del = document.createElement('button');
+    del.innerText='Delete';
+    del.onclick=()=>{ galleryVideos.splice(i,1); renderVideos(); }
+    const wrapper = document.createElement('div');
+    wrapper.appendChild(vid);
+    wrapper.appendChild(del);
+    videosDiv.appendChild(wrapper);
+  });
+}
+renderVideos();
+</script>
+</body>
+</html>
