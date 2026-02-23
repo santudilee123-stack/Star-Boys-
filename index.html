@@ -1,1 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Star Boys - Devotional Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: black;
+      color: white;
+      text-align: center;
+    }
 
+    h1 {
+      color: gold;
+      margin-top: 40px;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    #logo {
+      width: 150px;
+      margin-top: 20px;
+      animation: slideDown 2s ease-in-out;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      background: orange;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    input {
+      padding: 8px;
+      margin: 5px;
+    }
+
+    #adminPanel {
+      display: none;
+      margin-top: 20px;
+    }
+
+    img, video {
+      width: 90%;
+      margin-top: 15px;
+      border-radius: 10px;
+    }
+
+    .notice {
+      background: red;
+      padding: 10px;
+      margin: 10px;
+      border-radius: 5px;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @keyframes slideDown {
+      from {transform: translateY(-100px);}
+      to {transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+
+<h1>Welcome to Devotional Hub</h1>
+
+<h2>Star Boys</h2>
+
+<div id="noticeBoard"></div>
+
+<button onclick="showLogin()">Admin Login</button>
+
+<div id="loginBox" style="display:none;">
+  <input type="password" id="password" placeholder="Enter Password">
+  <button onclick="login()">Login</button>
+</div>
+
+<div id="adminPanel">
+  <h3>Upload Photo</h3>
+  <input type="file" id="photoUpload">
+  <button onclick="uploadPhoto()">Upload</button>
+
+  <h3>Upload Video</h3>
+  <input type="file" id="videoUpload">
+  <button onclick="uploadVideo()">Upload</button>
+
+  <h3>Add Notice</h3>
+  <input type="text" id="noticeText" placeholder="Enter notice">
+  <button onclick="addNotice()">Post Notice</button>
+</div>
+
+<div id="gallery"></div>
+
+<script>
+function showLogin() {
+  document.getElementById("loginBox").style.display = "block";
+}
+
+function login() {
+  const pass = document.getElementById("password").value;
+  if(pass === "starboys123") {
+    document.getElementById("adminPanel").style.display = "block";
+    alert("Login Successful");
+  } else {
+    alert("Wrong Password");
+  }
+}
+
+function uploadPhoto() {
+  const file = document.getElementById("photoUpload").files[0];
+  if(!file) return alert("Select a photo first");
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const img = document.createElement("img");
+    img.src = e.target.result;
+    document.getElementById("gallery").appendChild(img);
+  }
+  reader.readAsDataURL(file);
+}
+
+function uploadVideo() {
+  const file = document.getElementById("videoUpload").files[0];
+  if(!file) return alert("Select a video first");
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const video = document.createElement("video");
+    video.src = e.target.result;
+    video.controls = true;
+    document.getElementById("gallery").appendChild(video);
+  }
+  reader.readAsDataURL(file);
+}
+
+function addNotice() {
+  const text = document.getElementById("noticeText").value;
+  if(!text) return;
+  const noticeDiv = document.createElement("div");
+  noticeDiv.className = "notice";
+  noticeDiv.innerText = text;
+  document.getElementById("noticeBoard").appendChild(noticeDiv);
+  document.getElementById("noticeText").value = "";
+}
+</script>
+
+</body>
+  </html>
