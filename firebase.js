@@ -23,7 +23,7 @@ const firebaseConfig = {
   apiKey: "AIzaSyAR0ed_Xfvw6_hF21uwEU2NpO2-Cts_A0k",
   authDomain: "star-boys-1d890.firebaseapp.com",
   projectId: "star-boys-1d890",
-  storageBucket: "star-boys-1d890.firebasestorage.app",
+storageBucket: "star-boys-1d890.appspot.com"  ,
   messagingSenderId: "718247990043",
   appId: "1:718247990043:web:d257a07140070d568b79be"
 };
