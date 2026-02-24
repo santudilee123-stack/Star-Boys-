@@ -66,22 +66,24 @@ onAuthStateChanged(auth, (user) => {
 });
 
 
-// 👥 VISITOR COUNTER
+// 👥 VISITOR COUNTER FIXED
 async function updateVisitorCount() {
   const counterRef = doc(db, "stats", "visitors");
   const docSnap = await getDoc(counterRef);
 
-  if (docSnap.exists()) {
+  if (!docSnap.exists()) {
+    // Document doesn't exist → create starting at 2000
+    await setDoc(counterRef, { count: 2000 });
+    document.getElementById("visitorCount").innerText = 2000;
+  } else {
+    // Document exists → increment by 1
+    const currentCount = docSnap.data().count || 2000;
     await updateDoc(counterRef, {
       count: increment(1)
     });
-
-    document.getElementById("visitorCount").innerText =
-      docSnap.data().count + 1;
-  } else {
-    await setDoc(counterRef, { count: 1 });
-    document.getElementById("visitorCount").innerText = 1;
+    document.getElementById("visitorCount").innerText = currentCount + 1;
   }
 }
 
+// Call it
 updateVisitorCount();
