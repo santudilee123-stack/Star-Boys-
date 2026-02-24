@@ -39,6 +39,7 @@ setTimeout(()=>{
 
 // ==== Admin Login ====
 function showLogin(){ document.getElementById("loginBox").style.display='block'; }
+
 function login(){
   const pass=document.getElementById("passwordInput").value;
   if(pass==="starboys123"){
@@ -47,7 +48,7 @@ function login(){
   } else { alert("Wrong Password"); }
 }
 
-// ==== Media Upload ====
+// ==== Media Upload (temporary JS memory) ====
 window.galleryPhotos = [];
 window.galleryVideos = [];
 
@@ -75,3 +76,10 @@ function addNotice(){
   document.getElementById("noticeBoard").appendChild(div);
   document.getElementById("noticeText").value="";
 }
+
+// ==== Dynamic Celebration Years ====
+const foundingYear = 2003;
+const currentYear = new Date().getFullYear();
+const yearsCelebrated = currentYear - foundingYear;
+document.getElementById("celebration").innerText =
+  `Celebrating ${yearsCelebrated} years of Shri Ekadanta Geleyara Balaga`;
