@@ -1,65 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Star Boys Devotional Hub</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Star Boys</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- Cinematic Intro -->
-<div id="introOverlay">
-  <canvas id="particleCanvas"></canvas>
-  <img id="introLogo" src="logo.png" alt="Star Boys Logo">
-  <h1 id="introText">Star Boys Devotional Hub</h1>
-</div>
-
-<!-- Main Page -->
-<div id="mainPage">
-  <!-- Top-right Admin Login -->
-  <div id="adminLoginTop" onclick="showLogin()">Admin Login</div>
-  
-  <div id="loginBox" style="display:none;">
-    <input type="password" id="passwordInput" placeholder="Enter Password">
-    <button onclick="login()">Login</button>
+  <!-- Cinematic Intro -->
+  <div id="intro">
+    <h1 class="intro-title">Star Boys</h1>
+    <p class="intro-sub">Celebrating Devotion. Unity. Legacy Since 2005.</p>
   </div>
 
-  <!-- 20-Year Celebration Banner -->
-  <div id="celebration" class="celebration-banner"></div>
+  <!-- Main Content -->
+  <div id="main-content" class="hidden">
 
-  <!-- Main Options -->
-  <div class="options">
-    <div class="card" onclick="location.href='photos.html'">
-      <img src="folder-icon.png" alt="Photos"><h3>Photos</h3>
-    </div>
-    <div class="card" onclick="location.href='videos.html'">
-      <img src="folder-icon.png" alt="Videos"><h3>Videos</h3>
-    </div>
+    <!-- Hero -->
+    <section class="hero">
+      <h1>Star Boys</h1>
+      <h2 id="celebrationYear">20 Years Completed</h2>
+      <p class="tagline">Celebrating Devotion. Unity. Legacy Since 2005.</p>
+
+      <div class="hero-buttons">
+        <a href="gallery.html" class="btn">Explore Gallery</a>
+        <a href="https://maps.app.goo.gl/cTQ3hXuNexsqx9vg6?g_st=aw" target="_blank" class="btn-outline">Visit Location</a>
+      </div>
+    </section>
+
+    <!-- Notice Section -->
+    <section class="notice">
+      <h3>Ganesh Chaturthi Festival</h3>
+      <p id="festivalDateText"></p>
+      <div id="countdown"></div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="timeline">
+      <h2>Our Journey</h2>
+      <div class="timeline-line">
+        <div class="year">2005</div>
+        <div class="year">2010</div>
+        <div class="year">2015</div>
+        <div class="year">2020</div>
+        <div class="year">2025</div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2005 - <span id="currentYear"></span> Star Boys</p>
+    </footer>
+
   </div>
 
-  <!-- Admin Panel (hidden until login) -->
-  <div id="adminPanel" style="display:none;">
-    <h3>Upload Photo</h3>
-    <input type="file" id="photoUpload"><button onclick="uploadPhoto()">Upload</button>
-
-    <h3>Upload Video</h3>
-    <input type="file" id="videoUpload"><button onclick="uploadVideo()">Upload</button>
-
-    <h3>Add Notice</h3>
-    <input type="text" id="noticeText" placeholder="Notice..."><button onclick="addNotice()">Post</button>
-  </div>
-
-  <div id="noticeBoard"></div>
-
-  <!-- Location -->
-  <div id="location">
-    <h3>Our Location</h3>
-    <p>Shri Ekadanta Geleyara Balaga – Bijapur, Karnataka</p>
-  </div>
-</div>
-
-<script src="script.js"></script>
+  <!-- Scripts -->
+  <script src="js/festival.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
