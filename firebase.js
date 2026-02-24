@@ -1,29 +1,15 @@
 // Firebase Modular SDK (v12)
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
-import { 
-  getAuth, 
-  signInWithEmailAndPassword, 
-  signOut, 
-  onAuthStateChanged 
-} from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
+import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
+import { getFirestore, doc, setDoc, getDoc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
+import { getStorage, ref, uploadBytes, deleteObject } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-storage.js";
 
-import { 
-  getFirestore, 
-  doc, 
-  getDoc, 
-  setDoc, 
-  updateDoc, 
-  increment 
-} from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
-
-
-// 🔐 Correct Firebase Config
+// 🔐 Firebase Config
 const firebaseConfig = {
   apiKey: "AIzaSyAR0ed_Xfvw6_hF21uwEU2NpO2-Cts_A0k",
   authDomain: "star-boys-1d890.firebaseapp.com",
   projectId: "star-boys-1d890",
-  storageBucket: "star-boys-1d890.appspot.com", // ✅ fixed
+  storageBucket: "star-boys-1d890.appspot.com",
   messagingSenderId: "718247990043",
   appId: "1:718247990043:web:d257a07140070d568b79be"
 };
@@ -32,9 +18,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
+const storage = getStorage(app);
 
-
-// 🔐 ADMIN LOGIN FUNCTION
+// 🔐 ADMIN LOGIN
 window.adminLogin = async function(email, password) {
   try {
     await signInWithEmailAndPassword(auth, email, password);
@@ -45,18 +31,15 @@ window.adminLogin = async function(email, password) {
   }
 };
 
-
 // 🔐 LOGOUT
 window.adminLogout = async function() {
   await signOut(auth);
   alert("Logged out");
 };
 
-
 // 👀 Detect Admin State
 onAuthStateChanged(auth, (user) => {
   const adminPanel = document.getElementById("admin-panel");
-
   if (user && user.email === "santudilee123@gmail.com") {
     if (adminPanel) adminPanel.style.display = "block";
   } else {
@@ -64,30 +47,23 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
+// 🎵 Upload Music to Firebase Storage
+window.uploadMusic = async function() {
+  const fileInput = document.getElementById('uploadMusic');
+  const file = fileInput.files[0];
+  if (!file) return alert("Select an MP3 file first!");
 
-// 👥 VISITOR COUNTER FOR MOBILE + GITHUB PAGES
-async function updateVisitorCount() {
-  try {
-    const counterRef = doc(db, "stats", "visitors");
-    const docSnap = await getDoc(counterRef);
+  const musicRef = ref(storage, 'music/' + file.name);
+  await uploadBytes(musicRef, file);
+  document.getElementById('bgMusic').src = URL.createObjectURL(file);
+  alert("Music uploaded successfully ✅");
+};
 
-    if (!docSnap.exists()) {
-      // Document doesn't exist → create starting at 2000
-      await setDoc(counterRef, { count: 2000 });
-      document.getElementById("visitorCount").innerText = 2000;
-      alert("Visitor document created ✅ Count set to 2000");
-    } else {
-      // Document exists → increment by 1
-      const currentCount = docSnap.data().count || 2000;
-      await updateDoc(counterRef, { count: increment(1) });
-      document.getElementById("visitorCount").innerText = currentCount + 1;
-      alert("Visitor counter updated ✅ Current count: " + (currentCount + 1));
-    }
-  } catch (error) {
-    alert("Error connecting to Firestore ❌ Check rules/config");
-    console.error(error);
-  }
-}
-
-// Call it
-updateVisitorCount();
+// 🎵 Delete Music (resets default)
+window.deleteMusic = async function() {
+  const musicElement = document.getElementById('bgMusic');
+  musicElement.pause();
+  musicElement.currentTime = 0;
+  musicElement.src = "music/default.mp3";
+  alert("Music stopped/deleted ✅");
+};
