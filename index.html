@@ -18,26 +18,29 @@
 
 <!-- Main Page -->
 <div id="mainPage">
-  <h2>Welcome to Star Boys Devotional Hub</h2>
-
-  <div class="options">
-    <div class="card" onclick="location.href='photos.html'">
-      <h3>Photos</h3>
-    </div>
-    <div class="card" onclick="location.href='videos.html'">
-      <h3>Videos</h3>
-    </div>
-    <div class="card" onclick="showLogin()">
-      <h3>Admin Login</h3>
-    </div>
-  </div>
-
+  <!-- Top Right Admin Login -->
+  <div id="adminLoginTop" onclick="showLogin()">Admin Login</div>
+  
   <div id="loginBox" style="display:none;">
     <input type="password" id="passwordInput" placeholder="Enter Password">
     <button onclick="login()">Login</button>
   </div>
 
-  <div id="adminPanel">
+  <!-- 20-Year Celebration Banner -->
+  <div id="celebration" class="celebration-banner"></div>
+
+  <!-- Main Options -->
+  <div class="options">
+    <div class="card" onclick="location.href='photos.html'">
+      <img src="folder-icon.png" alt="Photos"><h3>Photos</h3>
+    </div>
+    <div class="card" onclick="location.href='videos.html'">
+      <img src="folder-icon.png" alt="Videos"><h3>Videos</h3>
+    </div>
+  </div>
+
+  <!-- Admin Panel (hidden until login) -->
+  <div id="adminPanel" style="display:none;">
     <h3>Upload Photo</h3>
     <input type="file" id="photoUpload"><button onclick="uploadPhoto()">Upload</button>
 
@@ -50,9 +53,10 @@
 
   <div id="noticeBoard"></div>
 
+  <!-- Location -->
   <div id="location">
     <h3>Our Location</h3>
-    <p>Shri Ekadanta Geleyara Balaga – Bagalagunte, Bangalore, Karnataka</p>
+    <p>Shri Ekadanta Geleyara Balaga – Bijapur, Karnataka</p>
   </div>
 </div>
 
