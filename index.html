@@ -5,77 +5,89 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Star Boys Celebration</title>
 <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <!-- Dark Mode Toggle -->
 <button id="darkModeToggle">🌙</button>
 
-<!-- Logo -->
-<img src="file_000000009ca861f9b444f75103161d81.png" alt="Logo" id="logo">
+<!-- Header with 3D interactive logo + Site Name -->
+<header id="logoContainer">
+  <div id="logoWrapper">
+    <img src="images/file_000000009ca861f9b444f75103161d81.png" alt="Logo" id="logo">
+    <h1 id="siteTitle">Star Boys</h1>
+  </div>
+</header>
 
 <!-- Countdown Timer -->
-<div id="countdown">
-  <span id="days">0</span> Days 
-  <span id="hours">0</span> Hours 
-  <span id="minutes">0</span> Minutes 
-  <span id="seconds">0</span> Seconds
-</div>
+<section id="countdownSection">
+  <div id="countdown">
+    <span id="days">0</span> Days 
+    <span id="hours">0</span> Hours 
+    <span id="minutes">0</span> Minutes 
+    <span id="seconds">0</span> Seconds
+  </div>
+</section>
 
-<!-- About Section -->
-<div id="about">
-  <h2>About</h2>
-  <p>Celebrating 20 years of excellence, Star Boys has become a legendary name in the community...</p>
-</div>
+<!-- Bento Grid Layout -->
+<section id="bentoGrid">
+  <!-- About -->
+  <div class="gridItem" id="about">
+    <h2>About</h2>
+    <p>Celebrating 20 years of excellence, Star Boys has become legendary, creating unforgettable experiences for our community. Join us in honoring the legacy and prestige of Star Boys.</p>
+  </div>
 
-<!-- Contact Section -->
-<div id="contact">
-  <h2>Contact</h2>
-  <p>Phone: 8867261278</p>
-  <p>Instagram: <a href="https://www.instagram.com/shri_ekadanta_geleyara-balaga?igsh=MTBscXM0amRsM3JhcA==">Follow</a></p>
-</div>
+  <!-- Contact -->
+  <div class="gridItem" id="contact">
+    <h2>Contact</h2>
+    <p>Phone: 8867261278</p>
+    <p>Instagram: <a href="https://www.instagram.com/shri_ekadanta_geleyara-balaga?igsh=MTBscXM0amRsM3JhcA==" target="_blank">Follow</a></p>
+  </div>
 
-<!-- Location Section -->
-<div id="location">
-  <h2>Location</h2>
-  <a href="https://maps.app.goo.gl/cTQ3hXuNexsqx9vg6?g_st=aw" target="_blank">View on Map</a>
-</div>
+  <!-- Location -->
+  <div class="gridItem" id="location">
+    <h2>Location</h2>
+    <a href="https://maps.app.goo.gl/cTQ3hXuNexsqx9vg6?g_st=aw" target="_blank">View on Map</a>
+  </div>
 
-<!-- Payment Image -->
-<div id="payment">
-  <h2>Payment</h2>
-  <img src="IMG-20250805-WA0000.jpg" alt="Payment" id="paymentImage">
-</div>
+  <!-- Payment -->
+  <div class="gridItem" id="payment">
+    <h2>Payment</h2>
+    <img src="images/IMG-20250805-WA0000.jpg" alt="Payment" id="paymentImage">
+  </div>
+</section>
 
-<!-- Admin Login (visible to everyone) -->
-<div id="loginForm">
+<!-- Admin Login Form -->
+<section id="loginForm">
   <h3>Admin Login</h3>
   <input type="email" id="adminEmail" placeholder="Email">
   <input type="password" id="adminPassword" placeholder="Password">
   <button id="loginBtn">Login</button>
   <p id="loginMessage"></p>
-</div>
+</section>
 
-<!-- Admin Panel (only for logged-in admin) -->
-<div id="adminPanel" style="display:none;">
+<!-- Admin Panel -->
+<section id="adminPanel" style="display:none;">
   <h3>Admin Panel</h3>
-  <input type="file" id="musicUpload">
-  <button onclick="playMusic()">Play</button>
-  <button onclick="pauseMusic()">Pause</button>
-  <button onclick="deleteMusic()">Delete</button>
+  <input type="file" id="musicUpload" accept="audio/*">
+  <button onclick="uploadMusic()">Upload & Play</button>
+  <button onclick="playMusic()">▶ Play Music</button>
+  <button onclick="pauseMusic()">⏸ Pause Music</button>
   <textarea id="noticeInput" placeholder="Edit Notice"></textarea>
   <button onclick="updateNotice()">Update Notice</button>
   <button onclick="adminLogout()">Logout</button>
-</div>
+</section>
 
 <!-- Background Music -->
-<audio id="bgMusic" src="Maaye Song #lyricalvideo #kannadasong #lyricalvideo.mp3" loop></audio>
+<audio id="bgMusic" src="audio/Maaye Song #lyricalvideo #kannadasong #lyricalvideo.mp3" loop></audio>
 
-<!-- Particles Container -->
+<!-- Particles -->
 <div id="particles"></div>
 
 <!-- Scripts -->
 <script type="module" src="js/firebase.js"></script>
-<script type="module" src="js/app.js"></script>
+<script type="module" src="js/festival.js"></script>
+
 </body>
-</html>
+                                             </html>
