@@ -4,17 +4,60 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Star Boys Celebration</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@600;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-  <img src="file_000000009ca861f9b444f75103161d81.png" alt="Star Boys Logo" id="logo">
-  <button id="darkModeToggle">🌙 Dark Mode</button>
-</header>
+<!-- Dark Mode Toggle -->
+<button id="darkModeToggle">🌙</button>
 
-<div id="admin-panel" style="display:none;">
+<!-- Logo -->
+<img src="file_000000009ca861f9b444f75103161d81.png" alt="Logo" id="logo">
+
+<!-- Countdown Timer -->
+<div id="countdown">
+  <span id="days">0</span> Days 
+  <span id="hours">0</span> Hours 
+  <span id="minutes">0</span> Minutes 
+  <span id="seconds">0</span> Seconds
+</div>
+
+<!-- About Section -->
+<div id="about">
+  <h2>About</h2>
+  <p>Celebrating 20 years of excellence, Star Boys has become a legendary name in the community...</p>
+</div>
+
+<!-- Contact Section -->
+<div id="contact">
+  <h2>Contact</h2>
+  <p>Phone: 8867261278</p>
+  <p>Instagram: <a href="https://www.instagram.com/shri_ekadanta_geleyara-balaga?igsh=MTBscXM0amRsM3JhcA==">Follow</a></p>
+</div>
+
+<!-- Location Section -->
+<div id="location">
+  <h2>Location</h2>
+  <a href="https://maps.app.goo.gl/cTQ3hXuNexsqx9vg6?g_st=aw" target="_blank">View on Map</a>
+</div>
+
+<!-- Payment Image -->
+<div id="payment">
+  <h2>Payment</h2>
+  <img src="IMG-20250805-WA0000.jpg" alt="Payment" id="paymentImage">
+</div>
+
+<!-- Admin Login (visible to everyone) -->
+<div id="loginForm">
+  <h3>Admin Login</h3>
+  <input type="email" id="adminEmail" placeholder="Email">
+  <input type="password" id="adminPassword" placeholder="Password">
+  <button id="loginBtn">Login</button>
+  <p id="loginMessage"></p>
+</div>
+
+<!-- Admin Panel (only for logged-in admin) -->
+<div id="adminPanel" style="display:none;">
   <h3>Admin Panel</h3>
   <input type="file" id="musicUpload">
   <button onclick="playMusic()">Play</button>
@@ -25,71 +68,14 @@
   <button onclick="adminLogout()">Logout</button>
 </div>
 
-<main>
-  <h1 id="festivalTitle">Happy Ganesha Chaturthi!</h1>
-  <p id="festivalSub">Celebrating 21 years of Star Boys</p>
-
-  <!-- Countdown Timer -->
-  <div id="countdown">
-    <span id="days">0</span> Days 
-    <span id="hours">0</span> Hours 
-    <span id="minutes">0</span> Minutes 
-    <span id="seconds">0</span> Seconds
-  </div>
-
-  <!-- Bento Grid -->
-  <div class="bento-grid">
-    <a href="photos.html" class="bento-item">Photos</a>
-    <a href="videos.html" class="bento-item">Videos</a>
-  </div>
-
-  <!-- Notice Board -->
-  <div id="noticeBoard">
-    <p id="noticeText">Grand Celebration Coming Soon!</p>
-  </div>
-
-  <!-- About Section -->
-  <section class="info-section">
-    <h2>About</h2>
-    <p>Star Boys has been bringing energy, celebration, and togetherness for over 20 glorious years. Every year, this festival marks not just joy but the spirit of unity and excitement among our amazing community.</p>
-  </section>
-
-  <!-- Contact Section -->
-  <section class="info-section">
-    <h2>Contact</h2>
-    <p>Phone: 8867261278</p>
-  </section>
-
-  <!-- Location Section -->
-  <section class="info-section">
-    <h2>Location</h2>
-    <p><a href="https://maps.app.goo.gl/cTQ3hXuNexsqx9vg6?g_st=aw" target="_blank" style="color:#ffd700; text-decoration:underline;">
-      2nd Cross , Behind Maramma temple , Bagalagunte , Bangalore , Karnataka, India
-    </a></p>
-  </section>
-
-  <!-- Payment Section -->
-  <section class="info-section">
-    <h2>Payment</h2>
-    <img src="IMG-20250805-WA0000.jpg" alt="Payment Info" style="width:250px;border-radius:10px;">
-  </section>
-
-  <!-- Quick Links -->
-  <div class="quick-links">
-    <a href="https://www.instagram.com/shri_ekadanta_geleyara_balaga" target="_blank">Instagram</a>
-    <a href="#">Home</a>
-  </div>
-</main>
-
 <!-- Background Music -->
 <audio id="bgMusic" src="Maaye Song #lyricalvideo #kannadasong #lyricalvideo.mp3" loop></audio>
 
-<!-- Particles Canvas -->
-<canvas id="particleCanvas"></canvas>
+<!-- Particles Container -->
+<div id="particles"></div>
 
 <!-- Scripts -->
 <script type="module" src="js/firebase.js"></script>
 <script type="module" src="js/app.js"></script>
-
 </body>
 </html>
