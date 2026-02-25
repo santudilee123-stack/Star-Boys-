@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Star Boys Celebration</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Dark Mode Toggle -->
+<button id="darkModeToggle">🌙</button>
+
+<!-- Header with Logo -->
+<header id="logoContainer">
+  <div id="logoWrapper">
+    <img src="logo.jpg" alt="Logo" id="logo">
+    <h1 id="siteTitle">Star Boys</h1>
+  </div>
+</header>
+
+<!-- Countdown Timer -->
+<section id="countdownSection">
+  <div id="countdown">
+    <span id="days">0</span> Days 
+    <span id="hours">0</span> Hours 
+    <span id="minutes">0</span> Minutes 
+    <span id="seconds">0</span> Seconds
+  </div>
+</section>
+
+<!-- Bento Grid -->
+<section id="bentoGrid">
+  <div class="gridItem" id="about">
+    <h2>About</h2>
+    <p>Celebrating 20 years of excellence, Star Boys has become legendary, creating unforgettable experiences for our community. Join us in honoring the legacy and prestige of Star Boys.</p>
+  </div>
+  <div class="gridItem" id="contact">
+    <h2>Contact</h2>
+    <p>Phone: 8867261278</p>
+    <p>Instagram: <a href="https://www.instagram.com/shri_ekadanta_geleyara-balaga?igsh=MTBscXM0amRsM3JhcA==" target="_blank">Follow</a></p>
+  </div>
+  <div class="gridItem" id="location">
+    <h2>Location</h2>
+    <a href="https://maps.app.goo.gl/cTQ3hXuNexsqx9vg6?g_st=aw" target="_blank">View on Map</a>
+  </div>
+  <div class="gridItem" id="payment">
+    <h2>Payment</h2>
+    <img src="payment.jpg" alt="Payment" id="paymentImage">
+  </div>
+</section>
+
+<!-- Admin Login -->
+<section id="loginForm">
+  <h3>Admin Login</h3>
+  <input type="email" id="adminEmail" placeholder="Email">
+  <input type="password" id="adminPassword" placeholder="Password">
+  <button id="loginBtn">Login</button>
+  <p id="loginMessage"></p>
+</section>
+
+<!-- Admin Panel -->
+<section id="adminPanel" style="display:none;">
+  <h3>Admin Panel</h3>
+
+  <!-- Upload Music -->
+  <input type="file" id="musicUpload" accept="audio/*">
+  <button id="uploadMusicBtn">Upload & Play</button>
+  <button id="playMusicBtn">▶ Play Music</button>
+  <button id="pauseMusicBtn">⏸ Pause Music</button>
+
+  <!-- Upload Video -->
+  <input type="file" id="videoUpload" accept="video/*">
+  <button id="uploadVideoBtn">Upload Video</button>
+
+  <!-- Update Notice -->
+  <textarea id="noticeInput" placeholder="Edit Notice"></textarea>
+  <button id="updateNoticeBtn">Update Notice</button>
+
+  <button id="logoutBtn">Logout</button>
+</section>
+
+<!-- Background Music -->
+<audio id="bgMusic" src="maaye.mp3" loop></audio>
+
+<!-- Scripts -->
+<script type="module" src="festival.js"></script>
+<script type="module" src="firebase.js"></script>
+
+</body>
+                    </html>
