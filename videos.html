@@ -1,36 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Videos - Star Boys</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Star Boys Videos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>Videos Gallery</h1>
-<div id="videosGallery"></div>
-<script src="script.js"></script>
-<script>
-function renderVideos(){
-  const videosDiv=document.getElementById("videosGallery");
-  videosDiv.innerHTML="";
-  galleryVideos.forEach((video,i)=>{
-    const vid=document.createElement("video");
-    vid.src=URL.createObjectURL(video);
-    vid.controls=true;
-    vid.style.width="300px";
-    vid.style.margin="10px";
+  <header>
+    <img src="images/logo.png" alt="Star Boys Logo" id="logo">
+    <a href="index.html">Home</a>
+  </header>
 
-    const del=document.createElement("button");
-    del.innerText="Delete";
-    del.onclick=()=>{ galleryVideos.splice(i,1); renderVideos(); }
+  <div id="admin-panel">
+    <h3>Admin Panel</h3>
+    <input type="file" id="videoUpload" accept="video/*">
+    <button onclick="uploadVideo()">Upload Video</button>
+  </div>
 
-    const wrapper=document.createElement("div");
-    wrapper.appendChild(vid);
-    wrapper.appendChild(del);
-    videosDiv.appendChild(wrapper);
-  });
-}
-renderVideos();
-</script>
+  <main>
+    <h2>Video Gallery</h2>
+    <div id="videoGrid" class="bento-grid"></div>
+  </main>
+
+  <script type="module" src="js/videos.js"></script>
 </body>
 </html>
